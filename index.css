@@ -170,6 +170,9 @@ body {
   animation: mainHeartbeat 1.4s infinite;
   z-index: 21;
   cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes mainHeartbeat {
