@@ -15,4 +15,7 @@ function onHeartClick() {
     letterContentElements.forEach(e => {
         e.style.animation = "letterContentAnimation 1s linear 3s 1 forwards";
     });
+
+    const downloadButtonElement = document.querySelector(".downloadButton");
+    downloadButtonElement.style.animation = "letterContentAnimation 1s linear 3s 1 forwards";
 }
