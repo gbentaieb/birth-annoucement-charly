@@ -4,7 +4,10 @@
   --flying-heart-2-animation-duration: 4s;
   --flying-heart-3-animation-duration: 2s;
   --flying-heart-4-animation-duration: 2.3s;
-  --flying-hearts-animation-iteration-count: infinite;
+  --flying-heart-1-animation-iteration-count: infinite;
+  --flying-heart-2-animation-iteration-count: infinite;
+  --flying-heart-3-animation-iteration-count: infinite;
+  --flying-heart-4-animation-iteration-count: infinite;
   --flying-hearts-animation-delay: 1s;
 }
 
@@ -131,7 +134,7 @@ body {
   width: 15%;
   aspect-ratio: 1;
   background-color: var(--hearts-color);
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate3d(-50%, -50%, 2000px) rotate(45deg);
   transform-origin: center;
   position: absolute;
   margin: 0 auto;
@@ -150,7 +153,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--hearts-color);
-  transform: translate(-50%, -50%);
+  transform: translate3D(-50%, -50%, 2000px);
   border-radius: 50%;
 }
 
@@ -162,7 +165,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--hearts-color);
-  transform: translate(-100%, 0%);
+  transform: translate3d(-100%, 0%, 2000px);
   border-radius: 50%;
 }
 
@@ -177,27 +180,28 @@ body {
 
 @keyframes mainHeartbeat {
   0% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1);
   }
   25% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1);
   }
   30% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1.4);
   }
   50% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1.2);
   }
   70% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1.4);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    transform: translate3d(-50%, -50%, 2001px) rotate(45deg) scale(1);
   }
 }
 
 .flyingHeart {
   z-index: 20;
+  opacity: 0;
 }
 
 .flyingHeart1 {
@@ -205,19 +209,27 @@ body {
   animation-duration: var(--flying-heart-1-animation-duration);
   animation-timing-function: ease-out;
   animation-delay: var(--flying-hearts-animation-delay);
-  animation-iteration-count: var(--flying-hearts-animation-iteration-count);
+  animation-iteration-count: var(--flying-heart-1-animation-iteration-count);
   animation-fill-mode: forwards;
 }
 
 @keyframes heart1 {
   0% {
-    transform: translateY(-100%) translateX(0%) scale(0.25) rotate(45deg);
+    transform: translate3D(0%, -100%, 2000px) scale(0.25) rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10% {
+    transform: translate3D(0%, -100%, 2000px) scale(0.25) rotate(45deg);
     opacity: 1;
+    visibility: visible;
   }
 
   100% {
-    transform: translateY(-300%) translateX(0%) scale(1) rotate(50deg);
+    transform: translate3D(0%, -300%, 2000px) scale(1) rotate(50deg);
     opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -226,19 +238,27 @@ body {
   animation-duration: var(--flying-heart-2-animation-duration);
   animation-timing-function: ease-out;
   animation-delay: var(--flying-hearts-animation-delay);
-  animation-iteration-count: var(--flying-hearts-animation-iteration-count);
+  animation-iteration-count: var(--flying-heart-2-animation-iteration-count);
   animation-fill-mode: forwards;
 }
 
 @keyframes heart2 {
-  0% {
-    transform: translateY(-100%) translateX(-100%) scale(0.25) rotate(-20deg);
+  10% {
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(-20deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10% {
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(-20deg);
     opacity: 0.2;
+    visibility: visible;
   }
 
   100% {
-    transform: translateY(-300%) translateX(-10%) scale(1) rotate(45deg);
+    transform: translate3D(-10%, -300%, 2000px) scale(1) rotate(45deg);
     opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -247,19 +267,27 @@ body {
   animation-duration: var(--flying-heart-3-animation-duration);
   animation-timing-function: ease-out;
   animation-delay: var(--flying-hearts-animation-delay);
-  animation-iteration-count: var(--flying-hearts-animation-iteration-count);
+  animation-iteration-count: var(--flying-heart-3-animation-iteration-count);
   animation-fill-mode: forwards;
 }
 
 @keyframes heart3 {
   0% {
-    transform: translateY(-130%) translateX(-100%) scale(0.25) rotate(20deg);
+    transform: translate3D(-100%, -50%, 2000px) scale(0.25) rotate(20deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10% {
+    transform: translate3D(-100%, -50%, 2000px) scale(0.25) rotate(20deg);
     opacity: 0.2;
+    visibility: visible;
   }
 
   100% {
-    transform: translateY(-450%) translateX(-10%) scale(1) rotate(60deg);
+    transform: translate3D(-10%, -450%, 2000px) scale(1) rotate(60deg);
     opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -268,19 +296,27 @@ body {
   animation-duration: var(--flying-heart-4-animation-duration);
   animation-timing-function: ease-out;
   animation-delay: var(--flying-hearts-animation-delay);
-  animation-iteration-count: var(--flying-hearts-animation-iteration-count);
+  animation-iteration-count: var(--flying-heart-4-animation-iteration-count);
   animation-fill-mode: forwards;
 }
 
 @keyframes heart4 {
   0% {
-    transform: translateY(-150%) translateX(-100%) scale(0.25) rotate(45deg);
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  10% {
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(45deg);
     opacity: 0.2;
+    visibility: visible;
   }
 
   100% {
-    transform: translateY(-550%) translateX(-10%) scale(1) rotate(80deg);
+    transform: translate3D(-10%, -550%, 2000px) scale(1) rotate(80deg);
     opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -296,13 +332,17 @@ body {
   position: absolute;
   bottom: 0%;
   left: 50%;
-  transform: translate(-50%, 0%);
+  transition: width 1s ease-in-out 0s, height 1s ease-in-out 0s;
+  transform-origin: center;
+  transform-box:fill-box;
+  transform: translate3d(-50%, 0%, -10px);
   box-shadow: 0px 0px 10px 0px rgb(50 50 0 / 30%);
   z-index: 1;
   display: grid;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  will-change: width, height, transform;
 }
 
 .letter > * {
@@ -313,41 +353,31 @@ body {
   display: none;
 }
 
+.letterTransition {
+  width: 70vw;
+  height: 90vh;
+}
+
 @keyframes letterAnimation {
   0% {
     bottom: 0px;
-    transform: translate(-50%, 0%);
-    width: 90%;
-    height: 90%;
+    transform: translate3d(-50%, 0%, -10px);
     z-index: 1;
   }
-  20% {
+  50% {
     bottom: 100%;
-    transform: translate(-50%, 0%);
+    transform: translate3d(-50%, 0%, 1000px);
     z-index: 1000;
-    width: 90%;
-    height: 90%;
     z-index: 1;
   }
-  21% {
+  51% {
     bottom: 100%;
-    transform: translate(-50%, 0%);
-    width: 90%;
-    height: 90%;
-    z-index: 40;
-  }
-  40% {
-    bottom: 50%;
-    transform: translate(-50%, 50%);
-    width: 90%;
-    height: 90%;
+    transform: translate3d(-50%, 0%, 1000px);
     z-index: 40;
   }
   100% {
     bottom: 50%;
-    transform: translate(-50%, 50%);
-    width: 70vw;
-    height: 90vh;
+    transform: translate3d(-50%, 50%, 1000px);
     z-index: 40;
   }
 }
@@ -360,7 +390,7 @@ body {
   right: 20px;
   z-index: 10;
   width: 45px;
-  aspect-ratio: 1;
+  height: 45px;
   background: #44a6c6;
   border-radius: 50%;
   padding: 10;
@@ -489,6 +519,7 @@ body {
     top: 20px;
     right: 20px;
     width: 45px;
+    height: 45px;
   }
 }
 
@@ -505,6 +536,7 @@ body {
     top: 20px;
     right: 20px;
     width: 45px;
+    height: 45px;
   }
 }
 
@@ -521,6 +553,7 @@ body {
     top: 15px;
     right: 15px;
     width: 35px;
+    height: 35px;
   }
 }
 
@@ -537,6 +570,7 @@ body {
     top: 15px;
     right: 15px;
     width: 35px;
+    height: 35px;
   }
 }
 
@@ -553,6 +587,7 @@ body {
     top: 10px;
     right: 10px;
     width: 25px;
+    height: 25px;
   }
 }
 
@@ -569,6 +604,7 @@ body {
     top: 20px;
     right: 20px;
     width: 45px;
+    height: 45px;
   }
 }
 
@@ -585,6 +621,7 @@ body {
     top: 20px;
     right: 20px;
     width: 45px;
+    height: 45px;
   }
 }
 
@@ -601,6 +638,7 @@ body {
     top: 15px;
     right: 15px;
     width: 35px;
+    height: 35px;
   }
 }
 
@@ -617,6 +655,7 @@ body {
     top: 15px;
     right: 15px;
     width: 35px;
+    height: 35px;
   }
 }
 
@@ -633,5 +672,6 @@ body {
     top: 10px;
     right: 10px;
     width: 25px;
+    height: 25px;
   }
 }
