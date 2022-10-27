@@ -43,7 +43,7 @@ body {
   top: 0;
   left: 0;
   filter: drop-shadow(3px 3px 5px rgba(50, 50, 0, 0.3));
-  z-index: 3;
+  z-index: 4;
   border-radius: 0 0 3% 3%;
   overflow: hidden;
 }
@@ -61,7 +61,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   border-radius: 0 0 3% 3%;
   overflow: hidden;
 }
@@ -98,9 +98,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 5;
   filter: drop-shadow(0px 5px 10px rgba(50, 50, 0, 0.3));
   transform-origin: top left;
+  will-change: filter, transform;
 }
 
 .envelopeTopShape {
@@ -114,15 +115,15 @@ body {
   0% {
     transform: rotateX(0deg);
     filter: drop-shadow(0px 5px 10px rgba(50, 50, 0, 0.3));
-    z-index: 4;
+    z-index: 5;
   }
   99% {
     transform: rotateX(180deg);
     filter: drop-shadow(10px 10px 5px #3793b2);
-    z-index: 4;
+    z-index: 5;
   }
   100% {
-    transform: rotateX(180deg);
+    transform: rotateX(180deg)  translate3d(0, 0, 20px);
     filter: drop-shadow(10px 10px 5px #3793b2);
     z-index: 0;
   }
@@ -141,8 +142,9 @@ body {
   top: 50%;
   left: 50%;
 
-  transition: scale 0.5s, opacity 0.5s, width 0.5s, height 0.5s;
+  transition: opacity 0.5s;
   transition-timing-function: ease-in-out;
+  will-change: transform, opacity;
 }
 
 .heart:before {
@@ -220,6 +222,12 @@ body {
     visibility: hidden;
   }
 
+  9% {
+    transform: translate3D(0%, -100%, 2000px) scale(0.25) rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
   10% {
     transform: translate3D(0%, -100%, 2000px) scale(0.25) rotate(45deg);
     opacity: 1;
@@ -244,6 +252,12 @@ body {
 
 @keyframes heart2 {
   0% {
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(-20deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  9% {
     transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(-20deg);
     opacity: 0;
     visibility: hidden;
@@ -278,6 +292,12 @@ body {
     visibility: hidden;
   }
 
+  9% {
+    transform: translate3D(-100%, -50%, 2000px) scale(0.25) rotate(20deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
   10% {
     transform: translate3D(-100%, -50%, 2000px) scale(0.25) rotate(20deg);
     opacity: 0.2;
@@ -302,6 +322,12 @@ body {
 
 @keyframes heart4 {
   0% {
+    transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(45deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  9% {
     transform: translate3D(-100%, -100%, 2000px) scale(0.25) rotate(45deg);
     opacity: 0;
     visibility: hidden;
@@ -366,7 +392,7 @@ body {
   }
   50% {
     bottom: 100%;
-    transform: translate3d(-50%, 0%, 1000px);
+    transform: translate3d(-50%, 0%, -10px);
     z-index: 1000;
     z-index: 1;
   }
